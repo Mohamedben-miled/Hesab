@@ -377,11 +377,12 @@
       background: #f8fafc;
     }
 
-    nav ul li ul li a {
-      color: #475569;
-      font-size: 0.9rem;
-      padding: 0.5rem 1rem;
-    }
+      nav ul li ul li a {
+        color: #e2e8f0;
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+      }
 
     nav ul li ul li a:hover {
       color: #1e293b;
@@ -1047,14 +1048,20 @@
       flex-direction: column;
       cursor: pointer;
       gap: 4px;
+      background: none;
+      border: none;
+      padding: 8px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
     }
 
     .menu-toggle span {
       width: 25px;
       height: 3px;
-      background: #fff;
+      background: #1e293b;
       border-radius: 2px;
       transition: all 0.3s ease;
+      display: block;
     }
 
     /* Enhanced Responsive Design */
@@ -1198,6 +1205,10 @@
         border-radius: 8px;
         padding: 8px;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border: none;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
       }
       
       .menu-toggle:hover {
@@ -1211,6 +1222,11 @@
       
       .menu-toggle span {
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        width: 25px;
+        height: 3px;
+        background: #1e293b;
+        border-radius: 2px;
+        display: block;
       }
       
       .menu-toggle.active span:nth-child(1) {
@@ -1239,10 +1255,12 @@
         justify-content: flex-start;
         padding-top: 2rem;
         transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 1000;
+        z-index: 999;
         overflow-y: auto;
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
+        list-style: none;
+        margin: 0;
       }
 
       nav ul.show {
@@ -1295,6 +1313,8 @@
         transition: all 0.3s ease;
         position: relative;
         overflow: hidden;
+        color: #ffffff;
+        text-decoration: none;
       }
       
       nav ul li a::before {
@@ -1325,11 +1345,25 @@
         display: none;
         padding: 0.5rem 0;
         border-left: 3px solid #3b82f6;
+        list-style: none;
       }
 
       nav ul li:hover ul {
         display: block;
         animation: slideDown 0.3s ease;
+      }
+      
+      nav ul li ul li a {
+        color: #e2e8f0;
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        display: block;
+      }
+      
+      nav ul li ul li a:hover {
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.1);
       }
       
       @keyframes slideDown {
