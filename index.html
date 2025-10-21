@@ -1074,6 +1074,25 @@
       border-radius: 8px;
       transition: all 0.3s ease;
     }
+    
+    /* Hide mobile menu on desktop */
+    @media (min-width: 769px) {
+      nav ul {
+        display: flex !important;
+        position: static !important;
+        background: transparent !important;
+        backdrop-filter: none !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        padding: 0 !important;
+        height: auto !important;
+        width: auto !important;
+        right: auto !important;
+        top: auto !important;
+        overflow: visible !important;
+        z-index: auto !important;
+      }
+    }
 
     .menu-toggle span {
       width: 25px;
@@ -1281,10 +1300,12 @@
         -webkit-overflow-scrolling: touch;
         list-style: none;
         margin: 0;
+        display: none;
       }
 
       nav ul.show {
         right: 0;
+        display: flex;
         animation: slideInRight 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       }
       
