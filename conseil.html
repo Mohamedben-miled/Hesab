@@ -550,16 +550,55 @@
       }
 
       /* Responsive Design */
+      /* Tablet Styles */
+      @media (max-width: 1024px) {
+        .hero-content h1 {
+          font-size: 3.5rem;
+        }
+        
+        .hero-content p {
+          font-size: 1.2rem;
+        }
+        
+        .service-details {
+          padding: 4rem 4%;
+        }
+        
+        .service-section h2 {
+          font-size: 2.2rem;
+        }
+        
+        .service-section p {
+          font-size: 1.1rem;
+        }
+        
+        .expertise-areas,
+        .methodology-section,
+        .success-stories {
+          padding: 4rem 3rem;
+        }
+        
+        .cta-section {
+          padding: 4rem 3rem;
+        }
+      }
+
+      /* Mobile Styles */
       @media (max-width: 768px) {
+        :root {
+          --header-height: 70px;
+        }
+        
+        /* Header and Navigation */
         .menu-toggle {
           display: flex;
         }
 
         nav ul {
           position: fixed;
-          top: 80px;
+          top: 70px;
           right: -100%;
-          height: calc(100vh - 80px);
+          height: calc(100vh - 70px);
           width: 100%;
           background: rgba(15, 23, 42, 0.98);
           backdrop-filter: blur(20px);
@@ -567,10 +606,21 @@
           justify-content: flex-start;
           padding-top: 2rem;
           transition: right 0.3s ease;
+          z-index: 1000;
         }
 
         nav ul.show {
           right: 0;
+        }
+
+        nav ul li {
+          margin: 0.5rem 0;
+        }
+
+        nav ul li a {
+          padding: 1rem 2rem;
+          display: block;
+          font-size: 1.1rem;
         }
 
         nav ul li ul {
@@ -578,22 +628,50 @@
           background: rgba(255, 255, 255, 0.1);
           margin-top: 0.5rem;
           border-radius: 8px;
+          display: none;
+        }
+
+        nav ul li:hover ul {
+          display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+          min-height: 100vh;
+          padding: 2rem 1rem;
+        }
+
+        .hero-content {
+          padding: 2rem 1.5rem;
+          margin: 1rem;
+          border-radius: 20px;
         }
 
         .hero-content h1 {
           font-size: 2.5rem;
+          line-height: 1.1;
+          margin-bottom: 1rem;
         }
         
         .hero-content p {
-          font-size: 1.1rem;
+          font-size: 1rem;
+          line-height: 1.5;
+          margin-bottom: 2rem;
         }
-        
+
+        /* Service Details */
         .service-details {
           padding: 3rem 3%;
         }
         
         .service-section h2 {
           font-size: 1.8rem;
+          margin-bottom: 1rem;
+        }
+
+        .service-section p {
+          font-size: 0.95rem;
+          line-height: 1.6;
         }
         
         .expertise-areas,
@@ -601,19 +679,97 @@
         .success-stories {
           padding: 3rem 2rem;
         }
+
+        .expertise-areas h3,
+        .methodology-section h3,
+        .success-stories h3 {
+          font-size: 1.3rem;
+          margin-bottom: 1rem;
+        }
+
+        .expertise-areas p,
+        .methodology-section p,
+        .success-stories p {
+          font-size: 0.9rem;
+          line-height: 1.5;
+        }
+
+        .expertise-areas ul,
+        .methodology-section ul,
+        .success-stories ul {
+          margin-top: 1rem;
+        }
+
+        .expertise-areas li,
+        .methodology-section li,
+        .success-stories li {
+          font-size: 0.85rem;
+          margin-bottom: 0.5rem;
+        }
+        
+        .cta-section {
+          padding: 3rem 2rem;
+          margin: 3rem 0;
+        }
         
         .cta-section h2 {
           font-size: 2rem;
+          margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+          font-size: 1rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .cta-button {
+          padding: 0.8rem 2rem;
+          font-size: 1rem;
+          width: 100%;
+          max-width: 250px;
+        }
+
+        /* Footer */
+        .footer-content {
+          grid-template-columns: 1fr;
+          text-align: center;
+          gap: 2rem;
+        }
+
+        .footer-section h3 {
+          font-size: 1.2rem;
+          margin-bottom: 1rem;
+        }
+
+        .footer-section p, .footer-section li {
+          font-size: 0.9rem;
+          line-height: 1.5;
+        }
+
+        .footer-section ul {
+          margin-top: 1rem;
+        }
+
+        .footer-section li {
+          margin-bottom: 0.5rem;
         }
       }
 
+      /* Small Mobile Styles */
       @media (max-width: 480px) {
+        .hero-content {
+          padding: 1.5rem 1rem;
+          margin: 0.5rem;
+        }
+
         .hero-content h1 {
           font-size: 2rem;
+          line-height: 1.1;
         }
         
         .hero-content p {
-          font-size: 1rem;
+          font-size: 0.9rem;
+          line-height: 1.4;
         }
         
         .service-details {
@@ -623,19 +779,52 @@
         .service-section h2 {
           font-size: 1.6rem;
         }
+
+        .service-section p {
+          font-size: 0.9rem;
+        }
         
         .expertise-areas,
         .methodology-section,
         .success-stories {
-          padding: 2rem 1.5rem;
+          padding: 2rem 1rem;
+        }
+
+        .expertise-areas h3,
+        .methodology-section h3,
+        .success-stories h3 {
+          font-size: 1.1rem;
+        }
+
+        .expertise-areas p,
+        .methodology-section p,
+        .success-stories p {
+          font-size: 0.85rem;
+        }
+
+        .expertise-areas li,
+        .methodology-section li,
+        .success-stories li {
+          font-size: 0.8rem;
         }
         
         .cta-section {
-          padding: 3rem 1.5rem;
+          padding: 2rem 1.5rem;
+          margin: 2rem 0;
         }
         
         .cta-section h2 {
           font-size: 1.8rem;
+        }
+        
+        .cta-section p {
+          font-size: 0.9rem;
+        }
+
+        .cta-button {
+          padding: 0.7rem 1.5rem;
+          font-size: 0.9rem;
+          max-width: 200px;
         }
       }
     </style>
