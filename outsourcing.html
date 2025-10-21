@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outsourcing - HESAB | Cabinet d'Expertise Comptable en Tunisie</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="HESAB propose des services d'outsourcing administratif en Tunisie. Externalisation comptable, administrative et RH pour vous concentrer sur votre cœur de métier. Contactez-nous au +216 23 855 825.">
+    <meta name="keywords" content="outsourcing Tunisie, externalisation administrative, externalisation comptable, RH, HESAB">
+    <meta name="author" content="HESAB - Cabinet d'Expertise Comptable et d'Audit">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Outsourcing - HESAB Tunisie">
+    <meta property="og:description" content="Services d'externalisation administrative et comptable pour optimiser votre organisation">
+    <meta property="og:url" content="https://hesab-tunisie.com/outsourcing">
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+      
+      /* Reset & Base */
+      * { 
+        margin: 0; 
+        padding: 0; 
+        box-sizing: border-box; 
+      }
+      
+      body { 
+        font-family: 'Inter', sans-serif; 
+        line-height: 1.6; 
+        color: #1e293b;
+        overflow-x: hidden;
+        background: #ffffff;
+      }
+      
+      a { 
+        text-decoration: none; 
+        color: inherit; 
+      }
+
+      /* Header with Modern Card Design */
+      header {
+        position: fixed;
+        top: 20px; 
+        left: 50%;
+        transform: translateX(-50%);
+        width: 95%;
+        max-width: 1200px;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(30, 41, 59, 0.08);
+        border-radius: 20px;
+        color: #1e293b;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 32px rgba(30, 41, 59, 0.08);
+      }
+
+      header.scrolled {
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 12px 48px rgba(30, 41, 59, 0.12);
+        top: 10px;
+        width: 98%;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: #1e293b;
+        position: relative;
+      }
+
+      .logo::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, #1e293b 0%, #3b82f6 100%);
+        border-radius: 2px;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 0.5rem;
+        align-items: center;
+      }
+
+      nav ul li {
+        position: relative;
+      }
+
+      nav ul li a {
+        font-weight: 500;
+        padding: 0.8rem 1.5rem;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+        position: relative;
+        color: #64748b;
+        background: transparent;
+      }
+
+      nav ul li a:hover {
+        background: #f1f5f9;
+        color: #1e293b;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 20px rgba(30, 41, 59, 0.1);
+      }
+
+      nav ul li a.active {
+        background: #1e293b;
+        color: #ffffff;
+      }
+
+      /* Dropdown with Card Design */
+      nav ul li ul {
+        position: absolute;
+        top: 120%;
+        left: 0;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        min-width: 280px;
+        display: none;
+        flex-direction: column;
+        padding: 1rem;
+        border-radius: 16px;
+        border: 1px solid rgba(30, 41, 59, 0.08);
+        box-shadow: 0 20px 60px rgba(30, 41, 59, 0.15);
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+      }
+
+      nav ul li:hover ul {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      nav ul li ul li {
+        padding: 0.5rem 0;
+        border-radius: 8px;
+        transition: background 0.3s ease;
+      }
+
+      nav ul li ul li:hover {
+        background: #f8fafc;
+      }
+
+      nav ul li ul li a {
+        color: #475569;
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+      }
+
+      nav ul li ul li a:hover {
+        color: #1e293b;
+        background: transparent;
+        transform: none;
+        box-shadow: none;
+      }
+
+      /* Mobile Menu */
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 4px;
+      }
+
+      .menu-toggle span {
+        width: 25px;
+        height: 3px;
+        background: #1e293b;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+
+      /* Hero Section */
+      .hero {
+        margin-top: 100px;
+        min-height: 60vh;
+        background: linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(147, 51, 234, 0.05) 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 4rem 2rem;
+      }
+
+      .hero-content h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1.2;
+      }
+
+      .hero-content p {
+        font-size: 1.3rem;
+        color: #64748b;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+
+      /* Service Details */
+      .service-details {
+        padding: 5rem 5%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .service-section {
+        margin-bottom: 4rem;
+      }
+
+      .service-section h2 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 1.5rem;
+        position: relative;
+      }
+
+      .service-section h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+        border-radius: 2px;
+      }
+
+      .service-section p {
+        font-size: 1.1rem;
+        color: #64748b;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+      }
+
+      .service-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
+      }
+
+      .service-card {
+        background: #fff;
+        padding: 2rem;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(30, 41, 59, 0.08);
+        border: 1px solid rgba(30, 41, 59, 0.05);
+        transition: all 0.3s ease;
+      }
+
+      .service-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 16px 48px rgba(30, 41, 59, 0.12);
+      }
+
+      .service-card h3 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #1e293b;
+        margin-bottom: 1rem;
+      }
+
+      .service-card p {
+        color: #64748b;
+        line-height: 1.6;
+        margin-bottom: 0;
+      }
+
+      .outsourcing-services {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+      }
+
+      .outsourcing-service {
+        background: #fff;
+        padding: 2.5rem 2rem;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        text-align: center;
+        border: 2px solid transparent;
+        transition: all 0.3s ease;
+      }
+
+      .outsourcing-service:hover {
+        border-color: #a855f7;
+        transform: translateY(-5px);
+      }
+
+      .service-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        font-size: 2rem;
+        color: #fff;
+      }
+
+      .outsourcing-service h3 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #1e293b;
+        margin-bottom: 1rem;
+      }
+
+      .outsourcing-service p {
+        color: #64748b;
+        line-height: 1.6;
+        margin-bottom: 0;
+      }
+
+      /* Benefits Section */
+      .benefits-section {
+        background: linear-gradient(135deg, rgba(168, 85, 247, 0.05) 0%, rgba(147, 51, 234, 0.02) 100%);
+        padding: 4rem 3rem;
+        border-radius: 20px;
+        margin: 3rem 0;
+      }
+
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .benefit-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .benefit-icon {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+      }
+
+      .benefit-content h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #1e293b;
+        margin-bottom: 0.5rem;
+      }
+
+      .benefit-content p {
+        color: #64748b;
+        line-height: 1.6;
+        margin-bottom: 0;
+      }
+
+      /* Process Section */
+      .process-section {
+        background: #f8fafc;
+        padding: 4rem 3rem;
+        border-radius: 20px;
+        margin: 3rem 0;
+      }
+
+      .process-steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+      }
+
+      .step {
+        text-align: center;
+        padding: 2rem;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        position: relative;
+      }
+
+      .step-number {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin: 0 auto 1rem;
+      }
+
+      .step h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #1e293b;
+        margin-bottom: 1rem;
+      }
+
+      .step p {
+        color: #64748b;
+        line-height: 1.6;
+        margin-bottom: 0;
+      }
+
+      /* CTA Section */
+      .cta-section {
+        background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+        color: #fff;
+        text-align: center;
+        padding: 4rem 2rem;
+        margin: 4rem 0;
+        border-radius: 20px;
+      }
+
+      .cta-section h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+      }
+
+      .cta-section p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+      }
+
+      .cta-button {
+        background: #fff;
+        color: #7c3aed;
+        padding: 1rem 2.5rem;
+        border-radius: 25px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        border: none;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        display: inline-block;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+      }
+
+      /* Footer */
+      footer {
+        background: #1a202c;
+        color: #e2e8f0;
+        padding: 3rem 5% 2rem;
+        text-align: center;
+        margin-top: 4rem;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .footer-section h3 {
+        color: #fff;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      .footer-section p,
+      .footer-section a {
+        color: #cbd5e1;
+        line-height: 1.6;
+        transition: color 0.3s ease;
+      }
+
+      .footer-section a:hover {
+        color: #a855f7;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: flex;
+        }
+
+        nav ul {
+          position: fixed;
+          top: 80px;
+          right: -100%;
+          height: calc(100vh - 80px);
+          width: 100%;
+          background: rgba(15, 23, 42, 0.98);
+          backdrop-filter: blur(20px);
+          flex-direction: column;
+          justify-content: flex-start;
+          padding-top: 2rem;
+          transition: right 0.3s ease;
+        }
+
+        nav ul.show {
+          right: 0;
+        }
+
+        nav ul li ul {
+          position: static;
+          background: rgba(255, 255, 255, 0.1);
+          margin-top: 0.5rem;
+          border-radius: 8px;
+        }
+
+        .hero-content h1 {
+          font-size: 2.5rem;
+        }
+        
+        .hero-content p {
+          font-size: 1.1rem;
+        }
+        
+        .service-details {
+          padding: 3rem 3%;
+        }
+        
+        .service-section h2 {
+          font-size: 1.8rem;
+        }
+        
+        .benefits-section,
+        .process-section {
+          padding: 3rem 2rem;
+        }
+        
+        .cta-section h2 {
+          font-size: 2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-content h1 {
+          font-size: 2rem;
+        }
+        
+        .hero-content p {
+          font-size: 1rem;
+        }
+        
+        .service-details {
+          padding: 2rem 2%;
+        }
+        
+        .service-section h2 {
+          font-size: 1.6rem;
+        }
+        
+        .benefits-section,
+        .process-section {
+          padding: 2rem 1.5rem;
+        }
+        
+        .cta-section {
+          padding: 3rem 1.5rem;
+        }
+        
+        .cta-section h2 {
+          font-size: 1.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header role="banner">
+      <div class="logo" aria-label="HESAB, retour à l'accueil">HESAB</div>
+      <button class="menu-toggle" aria-label="Ouvrir le menu de navigation" aria-controls="main-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="main-nav" role="navigation" aria-label="Navigation principale">
+        <ul>
+          <li><a href="helmi.html#accueil">Accueil</a></li>
+          <li><a href="helmi.html#cabinet">Notre Cabinet</a></li>
+          <li>
+            <a href="helmi.html#services" aria-haspopup="true" aria-expanded="false">Nos Services</a>
+            <ul>
+              <li><a href="creation-entreprises.html">Création d'entreprises</a></li>
+              <li><a href="levee-fonds.html">Levée de fonds</a></li>
+              <li><a href="assistance-comptable.html">Assistance comptable</a></li>
+              <li><a href="outsourcing.html" class="active">Outsourcing</a></li>
+              <li><a href="conseil.html">Conseil</a></li>
+              <li><a href="audit-commissariat.html">Audit & Commissariat</a></li>
+            </ul>
+          </li>
+          <li><a href="helmi.html#partenaires">Partenaires</a></li>
+          <li><a href="helmi.html#liens">Liens Utiles</a></li>
+          <li><a href="helmi.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <h1>Outsourcing</h1>
+          <p>Concentrez-vous sur votre cœur de métier en confiant vos fonctions administratives et comptables à nos experts. Une solution flexible et efficace pour optimiser votre organisation.</p>
+        </div>
+      </section>
+
+      <div class="service-details">
+        <section class="service-section">
+          <h2>Nos Services d'Outsourcing</h2>
+          <p>Une gamme complète de services d'externalisation pour vous permettre de vous concentrer sur vos activités stratégiques tout en bénéficiant d'une expertise professionnelle.</p>
+          
+          <div class="outsourcing-services">
+            <div class="outsourcing-service">
+              <h3>Outsourcing Comptable</h3>
+              <p>Gestion complète de votre comptabilité : tenue des livres, rapprochements, états financiers et déclarations fiscales.</p>
+            </div>
+            <div class="outsourcing-service">
+              <h3>Outsourcing Administratif</h3>
+              <p>Gestion de vos tâches administratives : facturation, suivi clients, gestion des fournisseurs et organisation administrative.</p>
+            </div>
+            <div class="outsourcing-service">
+              <h3>Outsourcing RH</h3>
+              <p>Gestion de vos ressources humaines : paie, contrats, déclarations sociales et suivi administratif du personnel.</p>
+            </div>
+            <div class="outsourcing-service">
+              <h3>Outsourcing Financier</h3>
+              <p>Gestion de votre trésorerie, suivi des flux financiers et préparation des rapports financiers.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="service-section">
+          <h2>Pourquoi Choisir l'Outsourcing ?</h2>
+          <p>Découvrez les avantages de l'externalisation pour votre entreprise.</p>
+          
+          <div class="benefits-section">
+            <div class="benefits-grid">
+              <div class="benefit-item">
+                <div class="benefit-icon">🎯</div>
+                <div class="benefit-content">
+                  <h3>Concentration sur le Cœur de Métier</h3>
+                  <p>Libérez vos équipes des tâches administratives pour vous concentrer sur vos activités stratégiques.</p>
+                </div>
+              </div>
+              <div class="benefit-item">
+                <div class="benefit-icon">💼</div>
+                <div class="benefit-content">
+                  <h3>Réduction des Coûts</h3>
+                  <p>Éliminez les coûts de recrutement, formation et gestion d'équipes administratives internes.</p>
+                </div>
+              </div>
+              <div class="benefit-item">
+                <div class="benefit-icon">⚡</div>
+                <div class="benefit-content">
+                  <h3>Flexibilité et Adaptabilité</h3>
+                  <p>Adaptez vos services selon vos besoins et la saisonnalité de votre activité.</p>
+                </div>
+              </div>
+              <div class="benefit-item">
+                <div class="benefit-icon">🛡️</div>
+                <div class="benefit-content">
+                  <h3>Expertise et Conformité</h3>
+                  <p>Bénéficiez de l'expertise de professionnels qualifiés et d'une conformité réglementaire garantie.</p>
+                </div>
+              </div>
+              <div class="benefit-item">
+                <div class="benefit-icon">📱</div>
+                <div class="benefit-content">
+                  <h3>Technologies Modernes</h3>
+                  <p>Accédez aux dernières technologies et outils sans investissement initial.</p>
+                </div>
+              </div>
+              <div class="benefit-item">
+                <div class="benefit-icon">🚀</div>
+                <div class="benefit-content">
+                  <h3>Croissance Accélérée</h3>
+                  <p>Accélérez votre développement en vous appuyant sur des processus optimisés et professionnels.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="service-section">
+          <h2>Notre Processus d'Outsourcing</h2>
+          <p>Une approche structurée pour assurer une transition en douceur et un service optimal.</p>
+          
+          <div class="process-section">
+            <div class="process-steps">
+              <div class="step">
+                <div class="step-number">1</div>
+                <h3>Audit et Analyse</h3>
+                <p>Analyse approfondie de vos processus actuels et identification des axes d'amélioration.</p>
+              </div>
+              <div class="step">
+                <div class="step-number">2</div>
+                <h3>Proposition Personnalisée</h3>
+                <p>Élaboration d'une proposition d'outsourcing adaptée à vos besoins et contraintes spécifiques.</p>
+              </div>
+              <div class="step">
+                <div class="step-number">3</div>
+                <h3>Transition et Formation</h3>
+                <p>Accompagnement dans la transition et formation de vos équipes aux nouveaux processus.</p>
+              </div>
+              <div class="step">
+                <div class="step-number">4</div>
+                <h3>Mise en Place</h3>
+                <p>Déploiement progressif des services externalisés avec un suivi rigoureux de la qualité.</p>
+              </div>
+              <div class="step">
+                <div class="step-number">5</div>
+                <h3>Suivi et Optimisation</h3>
+                <p>Suivi continu des performances et optimisation continue des processus externalisés.</p>
+              </div>
+              <div class="step">
+                <div class="step-number">6</div>
+                <h3>Évolution et Adaptation</h3>
+                <p>Adaptation continue des services selon l'évolution de vos besoins et de votre activité.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="service-section">
+          <h2>Solutions Adaptées à Votre Secteur</h2>
+          <p>Nos services d'outsourcing sont adaptés aux spécificités de votre secteur d'activité.</p>
+          
+          <div class="service-grid">
+            <div class="service-card">
+              <h3>PME et Startups</h3>
+              <p>Solutions flexibles et évolutives pour accompagner votre croissance et optimiser vos ressources.</p>
+            </div>
+            <div class="service-card">
+              <h3>Commerce et Distribution</h3>
+              <p>Gestion adaptée à la saisonnalité et aux spécificités du commerce et de la distribution.</p>
+            </div>
+            <div class="service-card">
+              <h3>Industrie et Services</h3>
+              <p>Outsourcing spécialisé pour les contraintes réglementaires et techniques de votre secteur.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="cta-section">
+          <h2>Prêt à Optimiser Votre Organisation ?</h2>
+          <p>Notre équipe d'experts est là pour vous accompagner dans la mise en place de solutions d'outsourcing adaptées à vos besoins.</p>
+          <a href="tel:+21623855825" class="cta-button">Appelez-nous au +216 23 855 825</a>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>HESAB</h3>
+          <p>Votre partenaire de confiance pour tous vos besoins en expertise comptable et audit en Tunisie.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>📧 <a href="mailto:hesab.consultingfinancier@outlook.com" style="color: #3b82f6; text-decoration: none; font-weight: 500; transition: color 0.3s ease;" onmouseover="this.style.color='#1e40af'" onmouseout="this.style.color='#3b82f6'">hesab.consultingfinancier@outlook.com</a></p>
+          <p>📞 <a href="tel:+21623855825">+216 23 855 825</a></p>
+          <p>📍 Tunis, Tunisie</p>
+        </div>
+        <div class="footer-section">
+          <h3>Services</h3>
+          <p><a href="helmi.html#services">Tous nos services</a></p>
+          <p><a href="creation-entreprises.html">Création d'entreprises</a></p>
+          <p><a href="levee-fonds.html">Levée de fonds</a></p>
+        </div>
+      </div>
+      <div style="border-top: 1px solid #334155; padding-top: 2rem; margin-top: 2rem;">
+        <p>&copy; 2025 HESAB - Cabinet d'Expertise Comptable et d'Audit - Tous droits réservés</p>
+      </div>
+    </footer>
+
+    <script>
+      // Header scroll effect
+      window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (window.scrollY > 100) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+
+      // Mobile menu toggle
+      const toggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('nav ul');
+      
+      toggle.addEventListener('click', () => {
+        nav.classList.toggle('show');
+        
+        // Animate hamburger
+        const spans = toggle.querySelectorAll('span');
+        if (nav.classList.contains('show')) {
+          spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+          spans[1].style.opacity = '0';
+          spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+        } else {
+          spans[0].style.transform = 'rotate(0) translate(0, 0)';
+          spans[1].style.opacity = '1';
+          spans[2].style.transform = 'rotate(0) translate(0, 0)';
+        }
+      });
+
+      // Smooth scrolling for navigation links (internal anchors only)
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            const headerHeight = document.querySelector('header').offsetHeight;
+            const targetPosition = target.offsetTop - headerHeight;
+            
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+            
+            // Close mobile menu if open
+            nav.classList.remove('show');
+            const spans = toggle.querySelectorAll('span');
+            spans[0].style.transform = 'rotate(0) translate(0, 0)';
+            spans[1].style.opacity = '1';
+            spans[2].style.transform = 'rotate(0) translate(0, 0)';
+          }
+        });
+      });
+
+      // Handle external links (HTML files) - let them navigate normally
+      document.querySelectorAll('a[href$=".html"]').forEach(link => {
+        link.addEventListener('click', function (e) {
+          // Close mobile menu if open before navigation
+          nav.classList.remove('show');
+          const spans = toggle.querySelectorAll('span');
+          spans[0].style.transform = 'rotate(0) translate(0, 0)';
+          spans[1].style.opacity = '1';
+          spans[2].style.transform = 'rotate(0) translate(0, 0)';
+          // Let the browser handle the navigation normally
+        });
+      });
+    </script>
+  </body>
+</html>
