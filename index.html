@@ -251,9 +251,6 @@
     }
     
     /* Fix any potential issues with fixed positioning */
-    .chatbot-toggle, .chatbot-container {
-      max-width: calc(100vw - 20px);
-    }
     
     /* Ensure all containers respect viewport width */
     .hero-content, .section-header, .about-content, .contact-form, .modal-content {
@@ -902,6 +899,100 @@
     .stat-label {
       color: #64748b;
       font-weight: 500;
+    }
+
+    /* Partners Carousel */
+    .partners-carousel {
+      overflow: hidden;
+      width: 100%;
+      margin: 3rem 0;
+      position: relative;
+    }
+
+    .partners-carousel::before,
+    .partners-carousel::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 100px;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .partners-carousel::before {
+      left: 0;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    }
+
+    .partners-carousel::after {
+      right: 0;
+      background: linear-gradient(270deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    }
+
+    .partners-track {
+      display: flex;
+      animation: scroll 40s linear infinite;
+      gap: 2rem;
+      align-items: center;
+      width: max-content;
+    }
+
+    .partner-logo {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 200px;
+      height: 100px;
+      padding: 1.5rem 2rem;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(30, 41, 59, 0.1);
+      border-radius: 16px;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 32px rgba(30, 41, 59, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .partner-logo::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #3b82f6, #1e293b, #059669);
+      border-radius: 16px 16px 0 0;
+    }
+
+    .partner-logo:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 16px 48px rgba(30, 41, 59, 0.15);
+      border-color: rgba(59, 130, 246, 0.3);
+    }
+
+    .bank-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1e293b;
+      text-align: center;
+      letter-spacing: -0.3px;
+      white-space: nowrap;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .partners-track:hover {
+      animation-play-state: paused;
     }
 
     /* Contact Form */
@@ -1737,47 +1828,6 @@
       }
 
       /* Chatbot */
-      .chatbot-toggle {
-        bottom: 20px;
-        right: 20px;
-        width: 50px;
-        height: 50px;
-      }
-
-      .chatbot-container {
-        bottom: 80px;
-        right: 20px;
-        width: calc(100vw - 40px);
-        max-width: 350px;
-        height: 500px;
-      }
-
-      .chatbot-header {
-        padding: 1rem;
-      }
-
-      .chatbot-header h3 {
-        font-size: 1.1rem;
-      }
-
-      .chatbot-messages {
-        height: 350px;
-        padding: 1rem;
-      }
-
-      .chatbot-input-container {
-        padding: 1rem;
-      }
-
-      .chatbot-input {
-        padding: 0.8rem;
-        font-size: 0.9rem;
-      }
-
-      .chatbot-send {
-        padding: 0.8rem;
-        font-size: 0.9rem;
-      }
     }
 
     /* Landscape orientation support for mobile */
@@ -1825,6 +1875,32 @@
         padding: 0.8rem 1.5rem;
         font-size: 0.9rem;
         max-width: 250px;
+      }
+
+      /* Partners Carousel Mobile */
+      .partners-carousel {
+        margin: 2rem 0;
+      }
+
+      .partners-carousel::before,
+      .partners-carousel::after {
+        width: 50px;
+      }
+
+      .partners-track {
+        gap: 1.5rem;
+        animation-duration: 30s;
+      }
+
+      .partner-logo {
+        min-width: 160px;
+        height: 80px;
+        padding: 1rem 1.5rem;
+        border-radius: 12px;
+      }
+
+      .bank-name {
+        font-size: 0.95rem;
       }
     }
     
@@ -2048,7 +2124,7 @@
 
   <section class="hero" id="accueil">
     <div class="hero-content">
-      <h1>Excellence en Expertise Comptable</h1>
+      <h1>Honnêteté, Efficacité d'un Service Adapté à vos Besoins</h1>
       <p class="subtitle">Votre partenaire stratégique pour la croissance, la conformité et l'optimisation financière de votre entreprise en Tunisie</p>
       
       <div class="hero-stats">
@@ -2058,7 +2134,7 @@
         </div>
         <div class="hero-stat">
           <span class="hero-stat-number">15+</span>
-          <span class="hero-stat-label">Années d'Excellence</span>
+          <span class="hero-stat-label">15 ans d'expérience</span>
         </div>
         <div class="hero-stat">
           <span class="hero-stat-number">93.6%</span>
@@ -2156,21 +2232,71 @@
       <h2>Nos Partenaires</h2>
       <p>Nous collaborons avec les meilleures institutions pour offrir à nos clients un service d'excellence</p>
     </div>
+    <div class="partners-carousel">
+      <div class="partners-track">
+        <div class="partner-logo">
+          <div class="bank-name">Attijari Bank</div>
+        </div>
+        <div class="partner-logo">
+          <div class="bank-name">STB</div>
+        </div>
+        <div class="partner-logo">
+          <div class="bank-name">UBCI</div>
+        </div>
+        <div class="partner-logo">
+          <div class="bank-name">BIAT</div>
+        </div>
+        <div class="partner-logo">
+          <div class="bank-name">Banque Zitouna</div>
+        </div>
+        <div class="partner-logo">
+          <div class="bank-name">QNB</div>
+        </div>
+        <div class="partner-logo">
+          <div class="bank-name">Arab Bank</div>
+        </div>
+        <div class="partner-logo">
+          <div class="bank-name">AMEN BANK</div>
+        </div>
+        <div class="partner-logo">
+          <div class="bank-name">Banque de Tunisie</div>
+        </div>
+        <div class="partner-logo">
+          <div class="bank-name">Banque Internationale</div>
+        </div>
+        <!-- Duplicate for seamless loop -->
+        <div class="partner-logo">
+          <div class="bank-name">Attijari Bank</div>
+        </div>
+        <div class="partner-logo">
+          <div class="bank-name">STB</div>
+        </div>
+        <div class="partner-logo">
+          <div class="bank-name">UBCI</div>
+        </div>
+        <div class="partner-logo">
+          <div class="bank-name">BIAT</div>
+        </div>
+        <div class="partner-logo">
+          <div class="bank-name">Banque Zitouna</div>
+        </div>
+        <div class="partner-logo">
+          <div class="bank-name">QNB</div>
+        </div>
+        <div class="partner-logo">
+          <div class="bank-name">Arab Bank</div>
+        </div>
+        <div class="partner-logo">
+          <div class="bank-name">AMEN BANK</div>
+        </div>
+      </div>
+    </div>
+    
     <div class="about-content">
       <div class="about-text">
         <p>Notre réseau de partenaires stratégiques nous permet d'offrir une expertise étendue et des solutions complètes. Nous travaillons en étroite collaboration avec des cabinets d'avocats, des banques, des organismes de financement et des institutions publiques.</p>
         <br>
         <p>Ces partenariats nous permettent de répondre efficacement aux besoins complexes de nos clients et de leur offrir un accompagnement global dans tous leurs projets.</p>
-      </div>
-      <div class="about-stats">
-        <div class="stat-item reveal">
-          <div class="stat-number">25+</div>
-          <div class="stat-label">Partenaires actifs</div>
-        </div>
-        <div class="stat-item reveal">
-          <div class="stat-number">10+</div>
-          <div class="stat-label">Banques partenaires</div>
-        </div>
       </div>
     </div>
   </section>
@@ -2282,38 +2408,6 @@
   </div>
 
 
-  <!-- Floating Chatbot Button -->
-  <button id="chatbot-btn" aria-label="Ouvrir le chatbot" style="position:fixed;bottom:100px;right:32px;z-index:2100;box-shadow:0 8px 32px rgba(30,41,59,0.18);background:linear-gradient(135deg,#1e293b 0%,#3b82f6 100%);padding:1.1rem 2.2rem;font-size:1.1rem;display:flex;align-items:center;gap:0.7rem;border-radius:50%;width:56px;height:56px;justify-content:center;color:#fff;border:none;transition:all 0.3s ease;">
-    <span style="font-size:1.5rem;">🤖</span>
-  </button>
-  <div id="chatbot-modal" style="display:none; position:fixed; bottom:170px; right:32px; width:380px; max-width:calc(100vw - 64px); background:#fff; border-radius:20px; box-shadow:0 20px 60px rgba(30,41,59,0.25); z-index:2200; overflow:hidden; border:1px solid rgba(30,41,59,0.1);">
-    <div style="background:linear-gradient(135deg,#1e293b 0%,#3b82f6 100%); color:#fff; padding:1.2rem; display:flex; align-items:center; justify-content:space-between;">
-      <div style="display:flex; align-items:center; gap:0.8rem;">
-        <div style="width:32px; height:32px; background:rgba(255,255,255,0.2); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.2rem;">🤖</div>
-        <div>
-          <div style="font-weight:600; font-size:1rem;">Assistant HESAB</div>
-          <div style="font-size:0.8rem; opacity:0.8;">En ligne</div>
-        </div>
-      </div>
-      <button id="close-chatbot-modal" aria-label="Fermer le chatbot" style="background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;padding:0.5rem; border-radius:50%; transition:background 0.3s ease;">×</button>
-    </div>
-    <div id="chatbot-messages" style="padding:1.5rem; height:280px; overflow-y:auto; font-size:0.95rem; color:#1e293b; background:#f8fafc; display:flex; flex-direction:column; gap:1rem;">
-      <div style="display:flex; align-items:flex-start; gap:0.8rem;">
-        <div style="width:28px; height:28px; background:linear-gradient(135deg,#3b82f6 0%,#1e293b 100%); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.9rem; color:#fff; flex-shrink:0;">🤖</div>
-        <div style="background:#fff; padding:0.8rem 1rem; border-radius:12px; box-shadow:0 2px 8px rgba(30,41,59,0.1); max-width:80%;">
-          <div style="font-weight:500; margin-bottom:0.3rem;">Bonjour ! 👋</div>
-          <div>Je suis l'assistant HESAB. Comment puis-je vous aider aujourd'hui ?</div>
-        </div>
-      </div>
-    </div>
-    <form id="chatbot-form" style="display:flex; border-top:1px solid #e5e7eb; padding:1rem; background:#fff;">
-      <input id="chatbot-input" type="text" placeholder="Tapez votre message..." style="flex:1; border:1px solid #e2e8f0; padding:0.8rem 1rem; font-size:0.95rem; outline:none; background:#f8fafc; border-radius:20px; margin-right:0.8rem;">
-      <button type="submit" style="background:linear-gradient(135deg,#3b82f6 0%,#1e293b 100%); color:#fff; border:none; padding:0.8rem 1.2rem; font-size:1rem; cursor:pointer; border-radius:20px; transition:all 0.3s ease; display:flex; align-items:center; gap:0.5rem;">
-        <span>Envoyer</span>
-        <span>→</span>
-      </button>
-    </form>
-  </div>
 
   <script>
     // Header scroll effect
@@ -2753,279 +2847,6 @@
       });
     }
 
-    // Enhanced Chatbot logic
-    const chatbotBtn = document.getElementById('chatbot-btn');
-    const chatbotModal = document.getElementById('chatbot-modal');
-    const closeChatbotModal = document.getElementById('close-chatbot-modal');
-    const chatbotForm = document.getElementById('chatbot-form');
-    const chatbotInput = document.getElementById('chatbot-input');
-    const chatbotMessages = document.getElementById('chatbot-messages');
-    
-    // Enhanced Chatbot responses
-    const responses = {
-      // Greetings
-      'bonjour': 'Bonjour ! Je suis l\'assistant HESAB. Comment puis-je vous aider avec nos services comptables et d\'audit ?',
-      'salut': 'Salut ! Que puis-je faire pour vous aujourd\'hui ?',
-      'hello': 'Hello ! Comment puis-je vous aider ?',
-      'bonsoir': 'Bonsoir ! Comment puis-je vous assister ?',
-      
-      // Company Information
-      'hesab': 'HESAB est un cabinet d\'expertise comptable et d\'audit de référence en Tunisie, fort de plusieurs années d\'expérience dans l\'accompagnement des entreprises de toutes tailles.',
-      'cabinet': 'Notre cabinet HESAB est spécialisé dans l\'expertise comptable et l\'audit en Tunisie. Nous accompagnons les entreprises dans leur croissance et leur conformité.',
-      'entreprise': 'HESAB est un cabinet d\'expertise comptable et d\'audit basé en Tunisie, spécialisé dans l\'accompagnement des entreprises.',
-      
-      // Services
-      'service': 'Nous offrons 6 services principaux : Création d\'entreprises, Levée de fonds, Assistance comptable, Outsourcing, Conseil, et Audit & Commissariat. Lequel vous intéresse ?',
-      'services': 'Nos services incluent : Création d\'entreprises, Levée de fonds, Assistance comptable, Outsourcing, Conseil, et Audit & Commissariat.',
-      
-      // Specific Services
-      'comptabilité': 'Notre assistance comptable & fiscale comprend : tenue de comptabilité, établissement des déclarations fiscales, optimisation fiscale et mise en conformité avec la réglementation tunisienne.',
-      'comptable': 'Nous offrons une assistance comptable complète : tenue de comptabilité, rapprochements bancaires, états financiers, et déclarations fiscales.',
-      'fiscal': 'Nos services fiscaux incluent : préparation des déclarations fiscales, optimisation fiscale, conformité fiscale, et assistance lors des contrôles.',
-      
-      'audit': 'Nos services d\'audit incluent : audit légal, audit contractuel, commissariat aux comptes, et certification des comptes selon les normes internationales.',
-      'commissariat': 'Nous proposons des missions de commissariat aux comptes pour les entreprises soumises à cette obligation légale, avec certification de la fiabilité de vos informations financières.',
-      
-      'création': 'Nous accompagnons la création d\'entreprises : choix de la forme juridique, formalités administratives, et conseils stratégiques pour un démarrage réussi.',
-      'entreprise': 'Pour la création d\'entreprise, nous vous aidons avec le choix de la forme juridique, les formalités administratives, et les conseils stratégiques.',
-      
-      'levée': 'Notre service de levée de fonds comprend : élaboration de business plans, recherche d\'investisseurs, et négociation des conditions de financement.',
-      'fonds': 'Nous vous accompagnons dans vos projets de financement avec l\'élaboration de business plans et la recherche d\'investisseurs.',
-      
-      'outsourcing': 'Notre service d\'outsourcing permet l\'externalisation de vos fonctions comptables et administratives pour vous concentrer sur votre cœur de métier.',
-      'externalisation': 'L\'outsourcing chez HESAB inclut : outsourcing comptable, administratif, RH, et financier.',
-      
-      'conseil': 'Nos services de conseil comprennent : conseil en gestion, optimisation des processus, amélioration de la performance et accompagnement dans vos décisions stratégiques.',
-      'conseils': 'Nous vous conseillons en gestion, optimisation des processus, et accompagnement dans vos décisions stratégiques.',
-      
-      // Pricing and Quotes
-      'prix': 'Pour obtenir un devis personnalisé, contactez-nous au +216 23 855 825, par WhatsApp, ou cliquez sur "Demander un devis".',
-      'devis': 'Pour un devis, cliquez sur le bouton "Demander un devis" ou contactez-nous directement au +216 23 855 825.',
-      'tarif': 'Nos tarifs varient selon les services. Contactez-nous au +216 23 855 825 pour un devis personnalisé.',
-      'coût': 'Le coût de nos services dépend de vos besoins spécifiques. Appelez-nous au +216 23 855 825 pour un devis gratuit.',
-      
-      // Contact Information
-      'contact': 'Vous pouvez nous contacter par téléphone (+216 23 855 825), WhatsApp, ou email (hesab.consultingfinancier@outlook.com). Nous sommes basés à Tunis, Tunisie.',
-      'téléphone': 'Notre numéro de téléphone est +216 23 855 825. Vous pouvez aussi nous contacter par WhatsApp ou email.',
-      'email': 'Notre adresse email est hesab.consultingfinancier@outlook.com',
-      'adresse': 'HESAB est basé à Tunis, Tunisie. Contactez-nous au +216 23 855 825 pour plus d\'informations.',
-      'tunis': 'Oui, nous sommes basés à Tunis, Tunisie. Nous servons les entreprises dans toute la Tunisie.',
-      
-      // Experience and Statistics
-      'expérience': 'HESAB a plus de 15 ans d\'expérience dans l\'expertise comptable et l\'audit en Tunisie.',
-      'années': 'Nous avons plus de 15 ans d\'expérience et plus de 200 clients satisfaits.',
-      'clients': 'Nous accompagnons plus de 200 clients actifs avec un taux de satisfaction de 93.6%.',
-      'satisfaction': 'Notre taux de satisfaction client est de 93.6%, avec plus de 200 clients actifs.',
-      
-      // Partners and Links
-      'partenaires': 'Nous collaborons avec plus de 25 partenaires actifs, incluant 10+ banques partenaires, des cabinets d\'avocats, et des institutions publiques.',
-      
-      // Process and Methodology
-      'processus': 'Notre processus commence par un audit initial, suivi d\'un plan d\'action personnalisé et d\'un accompagnement continu.',
-      'méthode': 'Nous utilisons une méthodologie éprouvée : audit initial, plan d\'action personnalisé, et accompagnement continu.',
-      'démarche': 'Pour commencer, contactez-nous au +216 23 855 825. Nous ferons un audit de votre situation et vous proposerons un plan d\'action.',
-      
-      // Technical Questions
-      'normes': 'Nous respectons les normes internationales (ISA) et la réglementation tunisienne en matière d\'audit et de commissariat aux comptes.',
-      'réglementation': 'Nous nous conformons à la réglementation tunisienne et aux normes internationales pour tous nos services.',
-      'conformité': 'Nous assurons votre conformité réglementaire et vous évitons les risques de sanctions.',
-      
-      // Benefits and Advantages
-      'avantages': 'Nos avantages : gain de temps, optimisation fiscale, conformité garantie, informations fiables, conseil personnalisé, et croissance accompagnée.',
-      'bénéfices': 'Avec HESAB, vous bénéficiez d\'un gain de temps, d\'une optimisation fiscale, et d\'une conformité garantie.',
-      
-      // Help and Support
-      'aide': 'Je suis là pour vous aider ! Posez-moi vos questions sur nos services, nos tarifs, ou notre processus.',
-      'question': 'Je suis là pour répondre à vos questions ! Que souhaitez-vous savoir sur HESAB ?',
-      'information': 'Je peux vous donner des informations sur nos services, nos tarifs, notre processus, ou nos coordonnées.',
-      
-      // Default responses
-      'default': 'Merci pour votre question ! Pour une réponse personnalisée et détaillée, contactez-nous au +216 23 855 825 ou par WhatsApp. Notre équipe d\'experts se fera un plaisir de vous aider.'
-    };
-    
-    if (chatbotBtn && chatbotModal && closeChatbotModal && chatbotForm && chatbotInput && chatbotMessages) {
-      chatbotBtn.addEventListener('click', () => {
-        chatbotModal.style.display = 'block';
-        chatbotInput.focus();
-        // Add hover effect
-        chatbotBtn.style.transform = 'scale(1.1)';
-        setTimeout(() => {
-          chatbotBtn.style.transform = 'scale(1)';
-        }, 200);
-      });
-      
-      closeChatbotModal.addEventListener('click', () => {
-        chatbotModal.style.display = 'none';
-      });
-      
-      // Close on outside click
-      chatbotModal.addEventListener('click', (e) => {
-        if (e.target === chatbotModal) {
-          chatbotModal.style.display = 'none';
-        }
-      });
-      
-      chatbotForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const msg = chatbotInput.value.trim().toLowerCase();
-        if (!msg) return;
-        
-        // Add user message
-        addMessage(msg, 'user');
-        chatbotInput.value = '';
-        
-        // Get bot response
-        setTimeout(() => {
-          const response = getBotResponse(msg);
-          addMessage(response, 'bot');
-        }, 1000);
-      });
-      
-      function addMessage(text, sender) {
-        const messageDiv = document.createElement('div');
-        messageDiv.style.display = 'flex';
-        messageDiv.style.alignItems = 'flex-start';
-        messageDiv.style.gap = '0.8rem';
-        messageDiv.style.marginBottom = '1rem';
-        
-        if (sender === 'user') {
-          messageDiv.style.flexDirection = 'row-reverse';
-          messageDiv.innerHTML = `
-            <div style="width:28px; height:28px; background:linear-gradient(135deg,#10b981 0%,#059669 100%); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.9rem; color:#fff; flex-shrink:0;">👤</div>
-            <div style="background:linear-gradient(135deg,#3b82f6 0%,#1e293b 100%); color:#fff; padding:0.8rem 1rem; border-radius:12px; box-shadow:0 2px 8px rgba(30,41,59,0.1); max-width:80%;">
-              ${text}
-            </div>
-          `;
-        } else {
-          messageDiv.innerHTML = `
-            <div style="width:28px; height:28px; background:linear-gradient(135deg,#3b82f6 0%,#1e293b 100%); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.9rem; color:#fff; flex-shrink:0;">🤖</div>
-            <div style="background:#fff; padding:0.8rem 1rem; border-radius:12px; box-shadow:0 2px 8px rgba(30,41,59,0.1); max-width:80%;">
-              ${text}
-            </div>
-          `;
-        }
-        
-        chatbotMessages.appendChild(messageDiv);
-        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-      }
-      
-      function getBotResponse(msg) {
-        const lowerMsg = msg.toLowerCase();
-        
-        // Check for multiple keyword matches and return the most specific one
-        const matchedKeywords = [];
-        for (const [keyword, response] of Object.entries(responses)) {
-          if (lowerMsg.includes(keyword)) {
-            matchedKeywords.push({ keyword, response, priority: getKeywordPriority(keyword) });
-          }
-        }
-        
-        // Sort by priority (higher priority first)
-        matchedKeywords.sort((a, b) => b.priority - a.priority);
-        
-        if (matchedKeywords.length > 0) {
-          return matchedKeywords[0].response;
-        }
-        
-        // If no specific match, try to provide helpful guidance
-        if (lowerMsg.includes('comment') || lowerMsg.includes('comment faire')) {
-          return 'Pour commencer, contactez-nous au +216 23 855 825. Nous ferons un audit de votre situation et vous proposerons un plan d\'action personnalisé.';
-        }
-        
-        if (lowerMsg.includes('quand') || lowerMsg.includes('délai')) {
-          return 'Les délais varient selon le service. Pour la comptabilité : 1-2 semaines, pour l\'audit : 2-4 semaines. Contactez-nous au +216 23 855 825 pour un planning précis.';
-        }
-        
-        if (lowerMsg.includes('qui') && lowerMsg.includes('vous')) {
-          return 'HESAB est un cabinet d\'expertise comptable et d\'audit basé à Tunis. Nous avons plus de 15 ans d\'expérience et plus de 200 clients satisfaits.';
-        }
-        
-        if (lowerMsg.includes('pourquoi') || lowerMsg.includes('pour quoi')) {
-          return 'Choisir HESAB vous apporte : gain de temps, optimisation fiscale, conformité garantie, informations fiables, et conseil personnalisé. Contactez-nous au +216 23 855 825 pour en savoir plus.';
-        }
-        
-        // Handle "what" questions
-        if (lowerMsg.includes('que') || lowerMsg.includes('quoi')) {
-          if (lowerMsg.includes('faire') || lowerMsg.includes('proposer')) {
-            return 'Nous proposons 6 services : Création d\'entreprises, Levée de fonds, Assistance comptable, Outsourcing, Conseil, et Audit & Commissariat. Lequel vous intéresse ?';
-          }
-          if (lowerMsg.includes('besoin') || lowerMsg.includes('requis')) {
-            return 'Les besoins varient selon votre situation. Contactez-nous au +216 23 855 825 pour un audit personnalisé de vos besoins.';
-          }
-        }
-        
-        // Handle "where" questions
-        if (lowerMsg.includes('où') || lowerMsg.includes('ou')) {
-          return 'HESAB est basé à Tunis, Tunisie. Nous servons les entreprises dans toute la Tunisie. Contactez-nous au +216 23 855 825.';
-        }
-        
-        // Handle "how much" questions
-        if (lowerMsg.includes('combien') || lowerMsg.includes('coûte')) {
-          return 'Nos tarifs varient selon les services et la complexité de votre dossier. Contactez-nous au +216 23 855 825 pour un devis personnalisé et gratuit.';
-        }
-        
-        // Handle "can" questions
-        if (lowerMsg.includes('peut') || lowerMsg.includes('pouvez')) {
-          if (lowerMsg.includes('aider') || lowerMsg.includes('m\'aider')) {
-            return 'Bien sûr ! Je peux vous aider avec des informations sur nos services, nos tarifs, notre processus, ou nos coordonnées. Que souhaitez-vous savoir ?';
-          }
-          if (lowerMsg.includes('faire') || lowerMsg.includes('proposer')) {
-            return 'Oui, nous pouvons vous proposer nos 6 services principaux. Lequel vous intéresse : Création d\'entreprises, Levée de fonds, Assistance comptable, Outsourcing, Conseil, ou Audit ?';
-          }
-        }
-        
-        // Handle "is" questions
-        if (lowerMsg.includes('est-ce que') || lowerMsg.includes('est ce que')) {
-          if (lowerMsg.includes('gratuit') || lowerMsg.includes('payant')) {
-            return 'Nous proposons un premier audit gratuit pour évaluer vos besoins. Nos services sont payants mais nos tarifs sont compétitifs. Contactez-nous au +216 23 855 825 pour un devis.';
-          }
-          if (lowerMsg.includes('possible') || lowerMsg.includes('faisable')) {
-            return 'Oui, c\'est possible ! Contactez-nous au +216 23 855 825 pour discuter de votre projet et voir comment nous pouvons vous aider.';
-          }
-        }
-        
-        // Handle "do you have" questions
-        if (lowerMsg.includes('avez-vous') || lowerMsg.includes('avez vous')) {
-          return 'Oui, nous avons plus de 15 ans d\'expérience, plus de 200 clients satisfaits, et plus de 25 partenaires actifs. Que souhaitez-vous savoir spécifiquement ?';
-        }
-        
-        return responses.default;
-      }
-      
-      function getKeywordPriority(keyword) {
-        // Higher priority for more specific terms
-        const priorities = {
-          'hesab': 10,
-          'cabinet': 9,
-          'comptabilité': 8,
-          'audit': 8,
-          'commissariat': 8,
-          'création': 8,
-          'levée': 8,
-          'outsourcing': 8,
-          'conseil': 8,
-          'prix': 7,
-          'devis': 7,
-          'tarif': 7,
-          'contact': 7,
-          'téléphone': 7,
-          'email': 7,
-          'expérience': 6,
-          'clients': 6,
-          'partenaires': 6,
-          'processus': 6,
-          'avantages': 6,
-          'aide': 5,
-          'question': 5,
-          'bonjour': 4,
-          'salut': 4,
-          'hello': 4,
-          'service': 3,
-          'services': 3
-        };
-        return priorities[keyword] || 1;
-      }
-    }
   </script>
 </body>
 </html>
